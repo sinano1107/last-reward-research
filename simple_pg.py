@@ -1,4 +1,8 @@
 # 方策勾配法を使って、カートポールに取り組む
+# 参考：
+#   https://github.com/pytorch/examples/blob/main/reinforcement_learning/actor_critic.py
+#   https://github.com/oreilly-japan/deep-learning-from-scratch-4/blob/master/ch09/simple_pg.py
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
