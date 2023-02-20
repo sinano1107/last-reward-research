@@ -42,9 +42,9 @@ class Agent:
         m = Categorical(probs)
         
         # 分布を使ってアクションをサンプリングする
-        action = m.sample().item()
+        action = m.sample()
         
-        return action, probs[action]
+        return action.item(), m.log_prob(action)
     
     def add(self, prob):
         self.memory.append(prob)
@@ -54,7 +54,7 @@ class Agent:
         loss = 0
         
         for prob in self.memory:
-            loss += -torch.log(prob) * G
+            loss += -prob * G
         
         self.optimizer.zero_grad()
         loss.backward()
